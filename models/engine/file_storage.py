@@ -9,10 +9,9 @@ class FileStorage:
     def __init__(self):
         self.__file_path = "file.json"
         self.__objects = dict()
-    
+
     def all(self):
         return self.__objects
-
 
     def new(self, object):
         my_id = str(object.id)
@@ -30,7 +29,6 @@ class FileStorage:
                     self.__objects[key] = globals()[class_name](**value)
         except Exception:
             pass
-    
 
     def save(self):
         my_dict = dict()
@@ -40,4 +38,3 @@ class FileStorage:
         data_json = json.dumps(my_dict)
         with open(self.__file_path, "w", encoding="utf-8") as file:
             file.write(data_json)
-            
