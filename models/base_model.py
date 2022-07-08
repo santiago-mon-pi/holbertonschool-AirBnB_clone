@@ -24,14 +24,14 @@ class BaseModel:
                     setattr(self, k, value)
 
             if kwargs.get("created_at", None) and type(self.created_at) is str:
-                self.created_at = datetime.datetime.strptime
-                (kwargs["created_at"], time_format)
+                get_d = datetime.datetime.strptime(kwargs["created_at"], time_format)
+                self.created_at = get_d
             else:
                 self.created_at = datetime.datetime.utcnow()
 
             if kwargs.get("updated_at", None) and type(self.updated_at) is str:
-                self.updated_at = datetime.datetime.strptime
-                (kwargs["updated_at"], time_format)
+                get_d = datetime.datetime.strptime(kwargs["updated_at"], time_format)
+                self.updated_at = get_d
             else:
                 self.updated_at = datetime.datetime.utcnow()
 
@@ -56,12 +56,12 @@ class BaseModel:
     def to_dict(self):
         temp_dict = self.__dict__.copy()
         if "created_at" in temp_dict:
-            temp_dict["created_at"] = temp_dict["created_at"].strftime
-            (time_format)
+            set_d = temp_dict["created_at"].strftime(time_format)
+            temp_dict["created_at"] = set_d
 
         if "updated_at" in temp_dict:
-            temp_dict["updated_at"] = temp_dict["updated_at"].strftime
-            (time_format)
+            set_d = temp_dict["updated_at"].strftime(time_format)
+            temp_dict["updated_at"] = set_d
 
         temp_dict["__class__"] = __class__.__name__
 

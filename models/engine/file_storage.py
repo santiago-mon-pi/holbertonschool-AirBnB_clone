@@ -1,14 +1,11 @@
-from base64 import encode
-from encodings import utf_8
-import json
-from multiprocessing.sharedctypes import Value
-from optparse import Values
 
+import json
+from models.base_model import BaseModel
 
 class FileStorage:
-    def __init__(self):
-        self.__file_path = "file.json"
-        self.__objects = dict()
+
+    __file_path = "file.json"
+    __objects = dict()
 
     def all(self):
         return self.__objects
@@ -22,19 +19,17 @@ class FileStorage:
 
     def reload(self):
         try:
-            with open(self.__file_path, encoding="utf-8") as file:
-                json_data = json.loads(file.read())
+            with open(self.__file_path,"r", encoding="utf-8") as file:
+                json_data = json.load(file)
                 for key, value in json_data.items():
-                    class_name = value["__class__"]
-                    self.__objects[key] = globals()[class_name](**value)
-        except Exception:
+                    value = eval(value["__class__"])(**value)
+                    self.__objects[key] = value
+        except FileNotFoundError:
             pass
 
     def save(self):
-        my_dict = dict()
+        my_dict = {}
         for key, value in self.__objects.items():
-            my_obj = value.to_dict()
-            my_dict[key] = my_obj
-        data_json = json.dumps(my_dict)
+            my_dict[key] = value.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as file:
-            file.write(data_json)
+            json.dump(my_dict, file)
