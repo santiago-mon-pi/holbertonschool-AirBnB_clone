@@ -18,12 +18,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
 
     def do_EOF(self, line):
-        """EOF implementation to close the conse using Ctrl+d"""
+        """Quit command to exit the progran"""
 
         return True
 
     def do_quit(self, line):
-        """Quit command to close the console"""
+        """Quit command to exit the progran"""
 
         return True
 
