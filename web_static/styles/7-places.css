@@ -1,9 +1,13 @@
-
+.places{
+    text-align: center;
+}
 .places h1 {
+    vertical-align: top;
     text-align: left;
     font-size: 30px;
 }
 .places article {
+    display: inline-block;
     width: 390px;
     padding: 20px;
     margin: 20px;
