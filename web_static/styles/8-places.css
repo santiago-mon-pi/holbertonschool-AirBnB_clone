@@ -1,0 +1,8 @@
+.price_by_night div {
+    color: #FF5A5F;
+    border: #FF5A5F 4px;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    text-align: right;
+}
