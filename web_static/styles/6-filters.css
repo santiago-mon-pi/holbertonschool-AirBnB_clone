@@ -50,3 +50,13 @@ div.amenities h4 {
     font-weight: 400;
     font-size: 14px; 
 }
+
+.popover {
+    color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    
+}
+
+.popover li {
+    list-style: none;
+}
