@@ -61,9 +61,17 @@ div.amenities h4 {
     padding: 20px;
     margin: 17 auto auto -1px;
     z-index: 1000;
+    display: none;
 }
 
 .popover li {
     list-style: none;
 }
 
+.locations:hover .popover{
+    display: block;
+}
+
+.amenities:hover .popover{
+    display: block;
+}
