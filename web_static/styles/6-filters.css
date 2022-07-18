@@ -48,15 +48,22 @@ div.amenities {
 
 div.amenities h4 {
     font-weight: 400;
+    font-weight: 400;
     font-size: 14px; 
 }
 
 .popover {
-    color: #FAFAFA;
+    background-color: #FAFAFA;
     border: 1px solid #DDDDDD;
-    
+    position: absolute;
+    border-radius: 4px;
+    width: 215px;
+    padding: 20px;
+    margin: 17 auto auto -1px;
+    z-index: 1000;
 }
 
 .popover li {
     list-style: none;
 }
+
